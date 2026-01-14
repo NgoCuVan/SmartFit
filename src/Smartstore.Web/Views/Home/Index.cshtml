@@ -1,0 +1,24 @@
+﻿@{
+    Assets.BodyAttributes.AppendCssClass("home");
+    Assets.AppendTitleParts((string)ViewBag.MetaTitle);
+    Assets.AppendMetaDescriptionParts((string)ViewBag.MetaDescription);
+    Assets.AppendMetaKeywordsParts((string)ViewBag.MetaKeywords);
+}
+
+<div class="page home-page">
+    <div class="page-body">
+        <zone name="home_page_top" /> 
+
+        @await Component.InvokeAsync("TopicBlock", new { systemName = "HomePageText", isLead = true })
+        <zone name="home_page_after_intro" />
+
+        @await Component.InvokeAsync("HomeCategories")
+        <zone name="home_page_after_categories" />
+
+        @await Component.InvokeAsync("HomeProducts")
+        <zone name="home_page_after_products" />
+
+        <zone name="home_page_bottom" />
+    </div>
+</div>
+
